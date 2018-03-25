@@ -74,7 +74,6 @@ a { text-decoration: none; }
 	text-align: center;
 }
 
-
 #mailbox ul {
 	background-color: #ecf0f1;
 }
@@ -82,6 +81,8 @@ a { text-decoration: none; }
 #mailbox ul li {
 	border-bottom: 1px solid #a6a8a9;
 	color: #776b6c;
+  height: 50px;
+	line-height: 50px;
 	padding: 0 24px;
 }
 
@@ -101,18 +102,9 @@ a { text-decoration: none; }
 }
 
 #mailbox ul li a {
-	color: #732F4D;
+	color: #3e4146;
 }
 
 #mailbox ul li span[class*="count"] {
 	float: right;
-}
-
-
-#mailbox footer a {
-	color: #3e4146;
-}
-
-#mailbox footer span[class*="entypo"] {
-	padding-left: 8px;
 }

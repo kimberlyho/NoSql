@@ -8,6 +8,8 @@ var MongoClient= require('mongodb').MongoClient;
 const assert = require('assert');
 var url = 'mongodb://localhost:27017';
 var str="";
+var db;
+var collection;
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname,'views'));
@@ -18,22 +20,27 @@ app.get('/',function(req,res){
 });
 
 
-app.route('/inbox').get(function(req,res){
-  MongoClient.connect(url, function(err, client){
-    var db = client.db('enron');
-    var collection = db.collection('email')
 
-    var cursor = collection.find({"folder":"inbox"});
-    cursor.each(function(err,item){
-      if(item!=null){
-        str=str+"&nbsp;&nbsp;&nbsp;&nbsp;Email folder &nbsp;&nbsp;" + item.folder + item.text +"</br>"
-      }
-    });
-    res.send(str);
-  });
+app.route('*').get(function(req,res) {
+    var folder = req.url.split("/");
+    collection.find({"folder":folder[1]}).toArray(function(err,emails){
+    assert.equal(err,null);
+    res.render('content', {
+        emails: emails,
+     });
+});
 });
 
 
-var server=app.listen(3000,function(){
+
+
+
+
+
+MongoClient.connect(url, function(err, client) {
+  db = client.db('enron');
+  collection = db.collection('email')
+  var server = app.listen(3000,function(){
   console.log("On server");
+  });
 });

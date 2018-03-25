@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+  <title>NoSqk_App</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="mailbox">
+    <header>
+      <h3>
+        Mail box
+        	<span class="count"><%= emails.length %></span>
+      </h3>
+  </header>
+
+<ul>
+		<% emails.forEach(function(email) { %>
+   <li>
+		 <p>
+	  <a>	Sender: <%= email.sender %> </a>
+	   </p>
+		 <p>
+   	<a>	Folder: <%= email.folder %> </a>
+    </p>
+		<p>
+	 <a>	Date: <%= email.date %> </a>
+	 </p>
+<p>
+<a>	Text: <%= email.text %> </a>
+</p>
+   </li>
+	<% }); %>
+
+
+
+</ul>
+</body>
+</head>
+</html>
