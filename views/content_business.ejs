@@ -8,12 +8,15 @@
 <body>
   <div id="mailbox">
     <header>
-
+			<form method="post" action="/search">
 	      <h3>
 	        Mail box
 	        	<span class="count"><%= emails.length %></span>
+						<input type="hidden" name="typebox" value="business">
+						<input type="text" name="search_word" placeholder="Search word">
+						<button> Search </button>
 	      </h3>
-
+			</form>
   </header>
 
 <ul>

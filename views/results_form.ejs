@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+  <title>NoSql_App</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="mailbox">
+    <header>
+			<form method="post" action="/formresults">
+	      <h3>
+	        Mail box
+						<input type="text" name="search_sender" placeholder="Search sender">
+						<input type="text" name="search_recipients" placeholder="Search recipients">
+						<input type="text" name="search_subject" placeholder="Search subject">
+						<button> Search </button>
+	      </h3>
+			</form>
+  </header>
+
+<ul>
+		<% emails.forEach(function(email) { %>
+   <li>
+		 <p>
+	  	<a>	Sender: <%= email.sender %> </a>
+	   </p>
+		 <p>
+	  	<a>	Recipients: <%= email.recipients %> </a>
+	   </p>
+		 <p>
+	  	<a>	Subject: <%= email.subject %> </a>
+	   </p>
+		 <p>
+   		<a>	Folder: <%= email.folder %> </a>
+    </p>
+		<p>
+	 	<a>	Date: <%= email.date %> </a>
+	 </p>
+		<p>
+		<a>	Text: <%= email.text %> </a>
+		</p>
+   </li>
+	<% }); %>
+
+
+
+</ul>
+</body>
+</head>
+</html>
